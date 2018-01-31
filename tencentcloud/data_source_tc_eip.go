@@ -34,7 +34,7 @@ func dataSourceTencentCloudEip() *schema.Resource {
 				Computed: true,
 			},
 
-			"is_arears": &schema.Schema{
+			"is_arrears": &schema.Schema{
 				Type:     schema.TypeBool,
 				Computed: true,
 			},
@@ -46,19 +46,16 @@ func dataSourceTencentCloudEip() *schema.Resource {
 
 			"private_ip": &schema.Schema{
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 
 			"associated_instance_id": &schema.Schema{
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 
 			"associated_network_interface_id": &schema.Schema{
 				Type:     schema.TypeString,
-				Optional: true,
 				Computed: true,
 			},
 		},
@@ -94,7 +91,7 @@ func dataSourceTencentCloudEipRead(d *schema.ResourceData, meta interface{}) err
 	d.SetId(*eip.AddressId)
 	d.Set("public_ip", *eip.AddressIp)
 	d.Set("status", *eip.AddressStatus)
-	d.Set("is_arears", *eip.IsArrears)
+	d.Set("is_arrears", *eip.IsArrears)
 	d.Set("is_blocked", *eip.IsBlocked)
 
 	if eip.PrivateAddressIp != nil {
